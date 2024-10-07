@@ -5,24 +5,24 @@ const BookDetail = ({ books, setBooks }) => {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  // Find the book by its ID
+
   const book = books.find((book) => book.id.toString() === id);
 
-  // Update the book status (borrowed or available)
+
   const updateBookStatus = (newStatus) => {
     setBooks(books.map((b) =>
       b.id === book.id ? { ...b, status: newStatus } : b
     ));
   };
 
-  // Handle the borrow action
+
   const handleBorrow = () => {
     updateBookStatus('borrowed');
     console.log(`Borrowed: ${book.title}`);
     navigate('/');
   };
 
-  // Handle the return action
+
   const handleReturn = () => {
     updateBookStatus('available');
     console.log(`Returned: ${book.title}`);
@@ -49,7 +49,7 @@ const BookDetail = ({ books, setBooks }) => {
           </p>
 
           <div className="mt-6 flex flex-col items-center space-y-4">
-            {/* Borrow button (disabled if the book is already borrowed) */}
+
             <button
               onClick={handleBorrow}
               disabled={book.status === 'borrowed'}
@@ -58,7 +58,7 @@ const BookDetail = ({ books, setBooks }) => {
               Borrow
             </button>
 
-            {/* Return button (disabled if the book is already available) */}
+
             <button
               onClick={handleReturn}
               disabled={book.status === 'available'}
