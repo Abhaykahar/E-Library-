@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import BookList from './components/BookList';
-import BookDetail from './components/BookDetail';
 import BookForm from './components/BookForm';
 import Navbar from './components/Navbar';
 import './app.css'
+import BookList from './Components/BookList';
+import BookDetail from './Components/BookDetail';
 
 function App() {
   const [books, setBooks] = useState([
@@ -26,7 +26,7 @@ function App() {
       <div className="container mx-auto p-4">
         <Routes>
           <Route path="/" element={<BookList books={books} />} />
-          <Route path="/book/:id" element={<BookDetail books={books} />} />
+          <Route path="/book/:id" element={<BookDetail books={books} setBooks={setBooks} />} />
           <Route path="/add-book" element={<BookForm setBooks={setBooks} />} />
         </Routes>
       </div>
