@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import BookForm from './Components/BookForm';
+import BookForm from '@/components/BookForm';
 import Navbar from './components/Navbar';
 import BookList from './components/BookList'; 
 import BookDetail from './components/BookDetail'; 
